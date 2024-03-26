@@ -1,12 +1,19 @@
 import React, { useState } from "react";
+import {useDispatch, useSelector} from "react-redux";
 
 function CountPage() {
 
     const [count, setCount] = useState(0)
+    const counts = useSelector(state => state.count)
+    const dispatch = useDispatch()
 
     const addition = () => {
-        setCount(count +1)
+        dispatch(setCount(count + counts.ONE))
     }
+
+    // const addition = () => {
+    //     setCount(count +1)
+    // }
 
     const subraction = () => {
         if(count>0){
